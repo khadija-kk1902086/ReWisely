@@ -1,10 +1,10 @@
 import React from 'react'
-import UploadForm from '../../components/UploadForm.jsx'
+// import UploadForm from '../../components/UploadForm.jsx'
 
 function page() {
     return (
         <div>
-          <UploadForm></UploadForm>
+          {/* <UploadForm></UploadForm> */}
         
         </div>
       )
