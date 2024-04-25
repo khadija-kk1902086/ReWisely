@@ -1,0 +1,147 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id Int [pk, increment]
+  email String [unique, not null]
+  name String
+  password String [not null]
+  emailVerified DateTime
+  image String
+  accounts Account [not null]
+  sessions Session [not null]
+  files File [not null]
+  mindmaps Mindmap [not null]
+  flashCards FlashCard [not null]
+  summaries Summary [not null]
+  learningTechniques LearningTechnique [not null]
+  questionsAnswers QuestionAnswer [not null]
+  Authenticator Authenticator [not null]
+}
+
+Table Account {
+  id String [pk]
+  userId Int [not null]
+  type String [not null]
+  provider String [not null]
+  providerAccountId String [not null]
+  refresh_token String
+  access_token String
+  expires_at Int
+  token_type String
+  scope String
+  id_token String
+  session_state String
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+  user User [not null]
+
+  indexes {
+    (provider, providerAccountId) [unique]
+  }
+}
+
+Table Session {
+  id String [pk]
+  sessionToken String [unique, not null]
+  userId Int [not null]
+  expires DateTime [not null]
+  user User [not null]
+  createdAt DateTime [default: `now()`, not null]
+  updatedAt DateTime [not null]
+}
+
+Table VerificationToken {
+  identifier String [not null]
+  token String [not null]
+  expires DateTime [not null]
+
+  indexes {
+    (identifier, token) [unique]
+  }
+}
+
+Table Authenticator {
+  id String [pk]
+  credentialID String [unique, not null]
+  userId Int [not null]
+  providerAccountId String [not null]
+  credentialPublicKey String [not null]
+  counter Int [not null]
+  credentialDeviceType String [not null]
+  credentialBackedUp Boolean [not null]
+  transports String
+  user User [not null]
+}
+
+Table File {
+  id Int [pk, increment]
+  filename String [not null]
+  data Bytes [not null]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table Mindmap {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table FlashCard {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table Summary {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table LearningTechnique {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table QuestionAnswer {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Ref: Account.userId > User.id [delete: Cascade]
+
+Ref: Session.userId > User.id [delete: Cascade]
+
+Ref: Authenticator.userId > User.id [delete: Cascade]
+
+Ref: File.authorId > User.id
+
+Ref: Mindmap.authorId > User.id
+
+Ref: FlashCard.authorId > User.id
+
+Ref: Summary.authorId > User.id
+
+Ref: LearningTechnique.authorId > User.id
+
+Ref: QuestionAnswer.authorId > User.id
