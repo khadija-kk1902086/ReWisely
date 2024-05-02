@@ -1,0 +1,274 @@
+/* 
+ 
+   body {
+    margin: 0;
+    background-color: #f8f8f8;
+  }
+  
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  
+  .header {
+    color: #cdcdcd;
+  }
+  .react-flow__node-mindmap {
+    background: #f6ad55;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    padding: 2px 5px;
+    font-weight: 700;
+  }
+  
+  .react-flow__node-mindmap .inputWrapper {
+    display: flex;
+    height: 20px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .react-flow__node-mindmap .inputWrapper .dragHandle {
+    background: transparent;
+    width: 14px;
+    height: 100%;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    pointer-events: all;
+  }
+  
+  .react-flow__node-mindmap .inputWrapper .input {
+    border: none;
+    padding: 0 2px;
+    border-radius: 1px;
+    font-weight: 700;
+    background: transparent;
+    height: 100%;
+    color: #222;
+  }
+  
+  .react-flow__node-mindmap .input:focus {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    pointer-events: all;
+  }
+   */
+   .react-flow__node-mindmap {
+   background:#08979D ; 
+    border-radius: 15%;
+    border: 1px solid transparent;
+    padding: 2px 5px;
+    font-weight: 700;
+    min-width: 200px; /* Set minimum width */
+    min-height: 100px; /* Set minimum height */
+    width: max-content; /* Allow the width to expand */
+    transition: transform 0.3s ease; 
+  }
+  .react-flow__node-mindmap:hover {
+    transform: scale(2.3);
+    /* Add other hover styles here */
+  }
+  .react-flow__node-mindmap .inputWrapper {
+    display: flex;
+    height: 100%; /* Take up full height */
+    z-index: 1;
+    position: relative;
+  }
+  
+  .react-flow__node-mindmap .inputWrapper .dragHandle {
+  background: transparent; 
+
+    width: 14px;
+    height: 100%;
+    margin-right: 4px;
+    display: flex;
+    align-items: center;
+    pointer-events: all;
+  }
+  
+  .react-flow__node-mindmap .inputWrapper .input {
+    border: none;
+    padding: 0 2px;
+    border-radius: 1px;
+    font-weight: 700;
+    height: 100%;
+  color: rgb(153, 16, 114); 
+
+    font-family: Arial, sans-serif; 
+    margin: 5%;
+    border-radius: 15%;
+    padding: 5%;
+  }
+  
+  .react-flow__node-mindmap .input:focus {
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    pointer-events: all;
+  }
+
+#original-node{
+  background: #0f0b0e; 
+
+  border-radius: 15%;
+  border: 1px solid transparent;
+  padding: 2px 5px;
+  font-weight: 700;
+  min-width: 200px; /* Set minimum width */
+  min-height: 100px; /* Set minimum height */
+  width: max-content; /* Allow the width to expand */
+  transition: transform 0.3s ease; 
+}
+
+/* .divdiv{
+  height: "1400px";
+  width: "1300px";
+background-color: rgb(189, 255, 233);
+  border-radius:"2%";
+   border: "5px solid black;";
+  margin-top: 40px;
+} */
+
+.header{
+color: aquamarine;
+}
+
+.interaction-info {
+  position: absolute;
+  top: 20px; /* Adjust positioning as needed */
+  left: 20px; /* Adjust positioning as needed */
+  background-color: rgba(255, 255, 255, 0.826);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 200px; /* Adjust width as needed */
+  font-size: 14px;
+  line-height: 1.4;
+}
+/*
+
+color palette: 
+1: #05585C Dark Green
+2: #08979D Moderate Green
+3: #6EC6CA Pure Green
+4: #8474A1 Dark Purple
+5: #CCABD8 Light Purple
+*/
+#node-2-0{
+  background: black;
+}
+
+.origin.input {
+  /* Styles for the original node */
+  background-color: #CCABD8 ;
+  border: 3px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
+  width: 200px; /* Set minimum width */
+height: 100px; 
+color: #0f0b0e;
+}
+
+
+.origin .deleteButton {
+  display: none;
+}
+.origin p {
+  font-weight: bold; /* Make text inside <p> element bold */
+  background-color: #0f0b0e;
+}
+.origin:hover {
+  /* Scale the node on hover */
+  transform: scale(1.1); /* Increase size by 10% */
+}
+.level1{
+  /* background:rgb(189, 255, 233);  */
+  background:linear-gradient(to bottom right,#05585C ,#6EC6CA ); 
+  border-radius: 15%;
+  border: 1px solid transparent;
+/*   padding: 2px 5px; */
+  font-weight: 700;
+  min-width: 200px; /* Set minimum width */
+  min-height: 100px; /* Set minimum height */
+  width: max-content; /* Allow the width to expand */
+  transition: transform 0.3s ease; 
+
+}
+
+/*
+
+color palette: 
+1: #05585C Dark Green
+2: #08979D Moderate Green
+3: #6EC6CA Pure Green
+4: #8474A1 Dark Purple
+5: #CCABD8 Light Purple
+*/
+.level1 .deleteButton {  display: none;}
+.level2 .deleteButton {  display: none;}
+.level3 .deleteButton {  display: none;}
+.origin.input{ 
+ background-color: #0f0b0e;
+}
+.level2{
+  background:linear-gradient(to bottom right, #CCABD8, #6EC6CA); 
+  border-radius: 15%;
+  border: 1px solid transparent;
+/*   padding: 2px 5px; */
+  font-weight: 700;
+  min-width: 200px; /* Set minimum width */
+  min-height: 100px; /* Set minimum height */
+  width: max-content; /* Allow the width to expand */
+  transition: transform 0.3s ease; 
+}
+
+.level3{
+background :#05585C;
+  background:linear-gradient(to bottom right,#8474A1 ,#CCABD8); 
+  border-radius: 15%;
+  border: 1px solid transparent;
+/*   padding: 2px 5px; */
+  font-weight: 700;
+  min-width: 200px; /* Set minimum width */
+  min-height: 100px; /* Set minimum height */
+  width: max-content; /* Allow the width to expand */
+  transition: transform 0.3s ease; 
+}
+
+
+/* .origin .input {
+  background-color: #0f0b0e; /* Set background color for textarea in nodes with class 'origin' 
+}
+ */
+
+ .deleteIcon{
+
+  margin-left:10px;
+ }
+
+ .interaction-info {
+  background:#CCABD8 ; /* Pure Green */
+  background: linear-gradient(to bottom right, #CCABD8, #6EC6CA); 
+  border: 1px solid #8474A1; /* Dark Purple */
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+
+
+}
+
+.interaction-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #05585C; /* Dark Green */
+  margin-bottom: 10px;
+}
+
+.interaction-info p:last-child {
+  margin-bottom: 0;
+}

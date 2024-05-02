@@ -1,0 +1,83 @@
+//// ------------------------------------------------------
+//// THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+//// ------------------------------------------------------
+
+Table User {
+  id Int [pk, increment]
+  email String [unique, not null]
+  name String
+  password String [not null]
+  emailVerified DateTime
+  image String
+  files File [not null]
+  mindmaps Mindmap [not null]
+  flashCards FlashCard [not null]
+  summaries Summary [not null]
+  learningTechniques LearningTechnique [not null]
+  questionsAnswers QuestionAnswer [not null]
+}
+
+Table File {
+  id Int [pk, increment]
+  filename String [not null]
+  data Bytes [not null]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table Mindmap {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table FlashCard {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table Summary {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table LearningTechnique {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Table QuestionAnswer {
+  id Int [pk, increment]
+  title String [not null]
+  content String
+  published Boolean [not null, default: false]
+  author User [not null]
+  authorId Int [not null]
+}
+
+Ref: File.authorId > User.id
+
+Ref: Mindmap.authorId > User.id
+
+Ref: FlashCard.authorId > User.id
+
+Ref: Summary.authorId > User.id
+
+Ref: LearningTechnique.authorId > User.id
+
+Ref: QuestionAnswer.authorId > User.id

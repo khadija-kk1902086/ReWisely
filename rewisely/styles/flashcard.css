@@ -1,0 +1,128 @@
+/* Flashcard.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Sans+Arabic:wght@300&family=Montserrat:wght@200&family=Mukta:wght@600&family=Playfair+Display:wght@500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+color palette: 
+1: #05585C Dark Green
+2: #08979D Moderate Green
+3: #6EC6CA Pure Green
+4: #8474A1 Dark Purple
+5: #CCABD8 Light Purple
+
+*/
+
+/* body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: poppins;
+    background: blueviolet;
+  }
+   */
+.wrapper .single-card {
+  height: 350px;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  /* background-color: black; */
+  margin-top: 4%;
+}
+
+.wrapper {
+  perspective: 900px;
+  display: flex;
+  flex-direction: row;
+  /* background-color: blue; */
+  /* margin-top: 50px; */
+}
+
+.single-card {
+  text-align: center;
+  transition: all 1.5s cubic-bezier(0.7, -0.5, 0.3, 1.8);
+  transform-style: preserve-3d;
+  color: white;
+  
+}
+.icon {
+  margin-top: 60%;
+  font-size: 100px;
+  color: #8474A1;
+}
+.wrapper:hover .single-card {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 600px;
+  position: relative;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  margin-left: 100px;
+  margin-right: 100px;
+
+}
+
+.front {
+  cursor: pointer;
+  height: 100%;
+  background: linear-gradient(#05585C, #08979D);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 50px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.back {
+  transform: rotateY(180deg);
+  position: absolute;
+  border-radius: 50px;
+  height: 350px;
+  background: linear-gradient(#8474A1, #CCABD8);
+}
+
+.content {
+  padding-top: 25%;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.content h2 {
+  font-size: 25px;
+  margin: 0;
+  font-weight: 300;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.content h4 {
+  margin: 0;
+}
+
+.socials {
+  margin-top: 20%;
+}
+
+.socials i {
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.upload_btn{
+  @apply rounded-full bg-[#08979d] py-1.5 px-5 text-white transition-all hover:bg-[#6ec6ca] hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  margin-top: 20px;
+}
+
+.space{
+  margin-bottom: 20px;
+}
